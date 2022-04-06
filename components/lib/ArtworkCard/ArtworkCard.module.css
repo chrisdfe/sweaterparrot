@@ -1,0 +1,22 @@
+/* Artwork */
+.artworkCard {
+  padding: 1rem;
+
+  /* a {
+    cursor: pointer;
+
+    &:hover {
+      .artworkCardTitle {
+        color: red;
+      }
+    }
+  } */
+}
+
+.artworkCardImageWrapper {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.artworkCardTitle {
+}
