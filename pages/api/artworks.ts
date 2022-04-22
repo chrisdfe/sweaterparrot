@@ -1,3 +1,6 @@
+
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from 'next'
 import fs from "fs/promises";
 import path from "path";
 
@@ -62,3 +65,16 @@ export const getArtworkBySlug = async (
 
   return artwork || null;
 };
+
+
+type ResponsePayload = {
+  artworks: Artwork[]
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<ResponsePayload>
+) {
+  const artworks = await getAllArtworks();
+  res.status(200).json({ artworks })
+}

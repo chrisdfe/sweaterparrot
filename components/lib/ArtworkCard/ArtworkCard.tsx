@@ -1,13 +1,15 @@
 import React, { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import styled from 'styled-components';
 
 import slugify from "slugify";
 
 import { Artwork } from "../../../types/artwork";
 
-import styles from "./ArtworkCard.module.css";
 import { getArtworkUrl } from "../../../lib/utils";
+
+import * as Styles from './ArtworkCard.styles';
 
 interface Props {
   artwork: Artwork;
@@ -18,16 +20,16 @@ const ArtworkCard = ({ artwork }: Props) => {
   const coverImage = artwork.images[0];
 
   return (
-    <div className={styles.artworkCard}>
+    <Styles.CardWrapper>
       <Link href={getArtworkUrl(artwork)}>
         <a>
-          <div className={styles.artworkCardImageWrapper}>
+          <Styles.ImageWrapper>
             <Image src={coverImage} layout="fill" />
-          </div>
-          <h3 className={styles.artworkCardTitle}>{artwork.meta?.title}</h3>
+          </Styles.ImageWrapper>
+          <Styles.Title>{artwork.meta?.title}</Styles.Title>
         </a>
       </Link>
-    </div>
+    </Styles.CardWrapper>
   );
 };
 

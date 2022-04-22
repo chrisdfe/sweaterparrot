@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
+import styled from 'styled-components';
 
-import styles from "./Navbar.module.css";
+import { Container } from '../../layout/Grid';
 
 type NavbarLink = {
   label: string;
@@ -10,10 +11,6 @@ type NavbarLink = {
 };
 
 const links: NavbarLink[] = [
-  // {
-  //   label: "home",
-  //   href: "/",
-  // },
   {
     label: "about",
     href: "/about",
@@ -25,31 +22,65 @@ const links: NavbarLink[] = [
   // },
 ];
 
+const Wrapper = styled.div`
+  padding: 1rem;
+  `;
+
+const InnerWrapper = styled.div`
+display: flex;
+`
+
+const Logo = styled.div`
+  margin-right: 3rem;
+`
+
+const LinkList = styled.div`
+  margin-left: auto;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+`
+
+const LinkListItem = styled.li`
+  display: inline-block;
+  margin-right: 1rem;
+`
+
+
 const Navbar = () => {
   return (
-    <div className={styles.navbar}>
-      <div className={styles.navbarLogo}>
-        <Link href="/">
-          <a>sweaterparrot</a>
-        </Link>
-      </div>
+    <Wrapper>
+      <Container>
+        <InnerWrapper>
+          <Logo>
+            <Link href="/">
+              <a>sweaterparrot</a>
+            </Link>
+          </Logo>
 
-      <ul className={styles.navbarLinkList}>
-        {links.map(({ href, label, external }) => (
-          <li key={label} className={styles.navbarLink}>
-            {external ? (
-              <a href={href} target="_blank">
-                {label}
-              </a>
-            ) : (
-              <Link href={href}>
-                <a>{label}</a>
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+          <LinkList>
+            <ul>
+              {links.map(({ href, label, external }) => (
+                <LinkListItem key={label}>
+                  {external ? (
+                    <a href={href} target="_blank">
+                      {label}
+                    </a>
+                  ) : (
+                    <Link href={href}>
+                      <a>{label}</a>
+                    </Link>
+                  )}
+                </LinkListItem>
+              ))}
+            </ul>
+          </LinkList>
+        </InnerWrapper>
+      </Container>
+    </Wrapper>
   );
 };
 
