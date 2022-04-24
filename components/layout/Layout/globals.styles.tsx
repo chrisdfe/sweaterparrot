@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import theme from '../../../lib/theme/theme';
+// import theme from '../../../lib/theme/theme';
 
 const GlobalStyles = createGlobalStyle`
   html,
@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: underline;
-    color: ${theme.linkColor};
+    color: ${props => props.theme.linkColor};
     
     &:hover {
       text-decoration: none;

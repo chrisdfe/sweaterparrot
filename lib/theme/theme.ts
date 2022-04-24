@@ -1,9 +1,7 @@
-type Theme = {
-  linkColor: string;
-}
+import { type DefaultTheme } from 'styled-components'
 
-const theme: Theme = {
-  linkColor: 'red'
+const theme: DefaultTheme = {
+  linkColor: 'red',
 }
 
 export default theme;

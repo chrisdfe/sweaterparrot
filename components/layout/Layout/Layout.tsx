@@ -1,8 +1,12 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
+import { ThemeProvider } from "styled-components";
 
 import Navbar from "../Navbar";
 import Footer from '../Footer';
+
+
+import theme from '../../../lib/theme/theme'
 
 import GlobalStyles from './globals.styles';
 
@@ -12,14 +16,14 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Navbar />
 
       {children}
 
       <Footer />
-    </div>
+    </ThemeProvider>
   );
 };
 
