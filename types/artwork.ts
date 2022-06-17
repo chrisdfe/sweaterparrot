@@ -1,13 +1,7 @@
-export type RawArtworkMeta = {
-  title?: string;
-};
-
-export type ArtworkMeta = {
-  title: string;
-  slug: string;
-};
-
 export type Artwork = {
+  title: string;
+  year: number;
   images: string[];
-  meta: ArtworkMeta;
+  slug?: string;
+  thumbnail?: string;
 };

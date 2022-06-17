@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import styled from 'styled-components';
 
-import { Container } from '../Grid';
+import { Container, Column } from '../Grid';
+import Box from '../Box';
 
 type FooterLink = {
   label: string;
@@ -16,11 +17,13 @@ const Wrapper = styled.div`
 
 const Footer = () => {
   return (
-    <Wrapper>
+    <Box margin={{ top: 3, bottom: 3 }}>
       <Container>
-        <h2>footer</h2>
+        <Column>
+          footer
+        </Column>
       </Container>
-    </Wrapper>
+    </Box>
   );
 };
 

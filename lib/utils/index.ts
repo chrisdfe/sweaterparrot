@@ -12,5 +12,5 @@ export const getArtworkUrlFromTitle = (title: string): string => {
 };
 
 export const getArtworkUrl = (artwork: Artwork): string => {
-  return getArtworkUrlFromTitle(artwork.meta?.title || "");
+  return getArtworkUrlFromTitle(artwork.title || "");
 };

@@ -1,56 +1,20 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import styled from 'styled-components';
 
-import theme from '../../lib/theme/theme';
-
-import { getAllArtworks, getArtworkBySlug } from "../api/artworks";
-
-import Layout from "../../components/layout/Layout";
-import { Container } from "../../components/layout/Grid";
+import { getAllArtworks, getArtworkBySlug } from "../../lib/resources/artworks";
+import { getArtworkSlugFromTitle } from '../../lib/utils';
 
 import { Artwork } from "../../types/artwork";
+
+import ArtworkPage from '../../components/pages/ArtworkPage';
 
 interface Props {
   artwork: Artwork;
 }
-const BackWrapper = styled.div`
-  padding: 1rem 0;
-`;
-
-const TitleWrapper = styled.div`
-  padding: 1rem 0;
-`;
-
-const ImageWrapper = styled.div`
-  img {
-    max-height: 100vh;
-  }
-`;
 
 export default function ArtworkDetailPage({ artwork }: Props) {
   return (
-    <Layout>
-      <Container>
-        <BackWrapper>
-          <Link href="/">&laquo; back</Link>
-        </BackWrapper>
-
-        <TitleWrapper>
-          <h1>{artwork.meta.title}</h1>
-        </TitleWrapper>
-      </Container>
-
-      <Container>
-        {artwork.images.map((image) => (
-          <ImageWrapper key={image}>
-            <Image src={image} width={1920} height={1920} layout="responsive" />
-          </ImageWrapper>
-        ))}
-      </Container>
-    </Layout>
+    <ArtworkPage artwork={artwork} />
   );
 }
 
@@ -58,7 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const artworks = await getAllArtworks();
 
   const paths = artworks.map((artwork) => {
-    return { params: { slug: artwork.meta.slug || "" } };
+    return { params: { slug: getArtworkSlugFromTitle(artwork.title) } };
   });
 
   return {

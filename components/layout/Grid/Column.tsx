@@ -1,15 +1,25 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
+import { COLUMN_SPAN, GUTTER } from './constants';
+
 interface Props {
   children: ReactNode
+  span?: number,
 }
 
-const Wrapper = styled.div``;
+interface WrapperProps {
+  span: number
+}
 
-function Column({ children }: Props) {
+const Wrapper = styled.div<WrapperProps>`
+  width: ${props => (props.span / COLUMN_SPAN) * 100}%;
+  padding: 0 ${GUTTER};
+`;
+
+function Column({ children, span = 12 }: Props) {
   return (
-    <Wrapper>
+    <Wrapper span={span}>
       {children}
     </Wrapper>
   );

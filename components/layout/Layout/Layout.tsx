@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React, { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 
@@ -8,7 +7,7 @@ import Footer from '../Footer';
 
 import theme from '../../../lib/theme/theme'
 
-import GlobalStyles from './globals.styles';
+import GlobalStyles from '../../../lib/theme/GlobalStyles';
 
 interface Props {
   children: ReactNode;

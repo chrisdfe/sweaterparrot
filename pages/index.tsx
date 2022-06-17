@@ -1,4 +1,4 @@
-import { getAllArtworks } from "./api/artworks";
+import { getAllArtworks } from "../lib/resources/artworks";
 
 import Layout from "../components/layout/Layout";
 import { Artwork } from "../types/artwork";

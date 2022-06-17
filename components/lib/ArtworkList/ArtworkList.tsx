@@ -3,9 +3,7 @@ import Image from "next/image";
 
 import { Artwork } from "../../../types/artwork";
 import ArtworkCard from "../ArtworkCard";
-import { Container } from '../../layout/Grid';
-
-import styles from "./ArtworkList.module.css";
+import { Container, Column } from '../../layout/Grid';
 
 interface Props {
   artworks: Artwork[];
@@ -14,16 +12,11 @@ interface Props {
 const ArtworkList = ({ artworks }: Props) => {
   return (
     <Container>
-      <div className={styles.ArtworkList}>
-        {artworks.map((artwork, index) => (
-          <div
-            key={artwork.meta?.title + " " + index}
-            className={styles.ArtworkListItem}
-          >
-            <ArtworkCard artwork={artwork} />
-          </div>
-        ))}
-      </div>
+      {artworks.map((artwork, index) => (
+        <Column span={4} key={artwork.title}>
+          <ArtworkCard artwork={artwork} key={artwork.title + " " + index} />
+        </Column>
+      ))}
     </Container>
   );
 };

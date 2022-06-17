@@ -2,7 +2,8 @@ import React, { ReactNode } from "react";
 import Link from "next/link";
 import styled from 'styled-components';
 
-import { Container } from '../../layout/Grid';
+import { Container, Column } from '../../layout/Grid';
+import Box from '../../layout/Box';
 
 type NavbarLink = {
   label: string;
@@ -15,19 +16,11 @@ const links: NavbarLink[] = [
     label: "about",
     href: "/about",
   },
-  // {
-  //   label: "store",
-  //   href: "https://www.inprnt.com/gallery/sweaterparrot/",
-  //   external: true,
-  // },
 ];
 
-const Wrapper = styled.div`
-  padding: 1rem;
-  `;
 
 const InnerWrapper = styled.div`
-display: flex;
+  display: flex;
 `
 
 const Logo = styled.div`
@@ -42,45 +35,50 @@ const LinkList = styled.div`
     padding: 0;
     margin: 0;
   }
-`
 
-const LinkListItem = styled.li`
-  display: inline-block;
-  margin-right: 1rem;
-`
+  li {
+    display: inline-block;
+    margin-right: 1rem;
 
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+`;
 
 const Navbar = () => {
   return (
-    <Wrapper>
+    <Box margin={{ top: 1, bottom: 1 }}>
       <Container>
-        <InnerWrapper>
-          <Logo>
-            <Link href="/">
-              <a>sweaterparrot</a>
-            </Link>
-          </Logo>
+        <Column span={12}>
+          <InnerWrapper>
+            <Logo>
+              <Link href="/">
+                <a>sweaterparrot</a>
+              </Link>
+            </Logo>
 
-          <LinkList>
-            <ul>
-              {links.map(({ href, label, external }) => (
-                <LinkListItem key={label}>
-                  {external ? (
-                    <a href={href} target="_blank">
-                      {label}
-                    </a>
-                  ) : (
-                    <Link href={href}>
-                      <a>{label}</a>
-                    </Link>
-                  )}
-                </LinkListItem>
-              ))}
-            </ul>
-          </LinkList>
-        </InnerWrapper>
+            <LinkList>
+              <ul>
+                {links.map(({ href, label, external }) => (
+                  <li key={label}>
+                    {external ? (
+                      <a href={href} target="_blank">
+                        {label}
+                      </a>
+                    ) : (
+                      <Link href={href}>
+                        <a>{label}</a>
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </LinkList>
+          </InnerWrapper>
+        </Column>
       </Container>
-    </Wrapper>
+    </Box>
   );
 };
 

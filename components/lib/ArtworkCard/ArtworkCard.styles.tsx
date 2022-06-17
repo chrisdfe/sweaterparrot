@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
-  padding: 1rem;
+  /* padding: 1rem; */
 `;
 
 export const ImageWrapper = styled.div`
@@ -9,6 +9,4 @@ export const ImageWrapper = styled.div`
   aspect-ratio: 1;
 `;
 
-export const Title = styled.h3`
-
-`;
+export const Title = styled.h3``;
