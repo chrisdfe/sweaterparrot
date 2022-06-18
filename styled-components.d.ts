@@ -9,8 +9,6 @@ declare module 'styled-components' {
     spacing: SpacingMap,
     swatch: SwatchMap,
     palette: {
-      primary: string,
-      secondary: string,
       background: {
         primary: string
       }

@@ -5,9 +5,9 @@ import Navbar from "../Navbar";
 import Footer from '../Footer';
 
 
-import theme from '../../../lib/theme/theme'
+import theme from '../../../../lib/theme/theme'
 
-import GlobalStyles from '../../../lib/theme/GlobalStyles';
+import GlobalStyles from '../../../../lib/theme/GlobalStyles';
 
 interface Props {
   children: ReactNode;
@@ -16,12 +16,14 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Navbar />
+      <>
+        <GlobalStyles />
+        <Navbar />
 
-      {children}
+        {children}
 
-      <Footer />
+        <Footer />
+      </>
     </ThemeProvider>
   );
 };

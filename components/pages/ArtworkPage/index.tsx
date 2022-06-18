@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from 'styled-components';
 
-import Layout from "../../layout/Layout";
-import { Container, Column } from "../../layout/Grid";
-import Box from "../../layout/Box";
+import Layout from "../../lib/layout/Layout";
+import { Container, Column } from "../../lib/layout/Grid";
+import Box from "../../lib/layout/Box";
 
 import { Artwork } from "../../../types/artwork";
 
@@ -43,13 +43,19 @@ export default function ArtworkDetailPage({ artwork }: Props) {
   return (
     <Layout>
 
-      <PrevNextBar />
+      <Container>
+        <Column>
+          <Box margin={{ top: 1, bottom: 1 }}>
+            <Link href="/">&laquo; back</Link>
+          </Box>
+        </Column>
+      </Container>
 
       <TitleBar>
         <Container>
           <Column span={12}>
 
-            <Box margin={{ top: 3, bottom: 3 }}>
+            <Box margin={{ top: 5, bottom: 5 }}>
               <TitleWrapper>
                 <h1>
                   {artwork.title}
@@ -62,7 +68,7 @@ export default function ArtworkDetailPage({ artwork }: Props) {
         </Container>
       </TitleBar>
 
-      <Box margin={{ top: 3, bottom: 3 }}>
+      <Box margin={{ bottom: 3 }}>
         <Container>
           <Column span={12}>
             {artwork.images.map((image) => (

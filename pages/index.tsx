@@ -1,9 +1,9 @@
 import { getAllArtworks } from "../lib/resources/artworks";
 
-import Layout from "../components/layout/Layout";
-import { Artwork } from "../types/artwork";
+import { Artwork } from "types/artwork";
 
-import ArtworkList from "../components/lib/ArtworkList";
+import Layout from "components/lib/layout/Layout";
+import ArtworkList from "components/lib/ArtworkList";
 
 interface Props {
   artworks: Artwork[];

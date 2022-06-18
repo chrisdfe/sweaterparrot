@@ -11,11 +11,9 @@ const BackWrapper = styled.div`
 export default function PrevNextBar() {
   return (
     <Container>
-      <Column span={12}>
+      <Column>
         <Box margin={{ top: 1, bottom: 1 }}>
-          <BackWrapper>
-            <Link href="/">&laquo; back</Link>
-          </BackWrapper>
+          <Link href="/">&laquo; back</Link>
         </Box>
       </Column>
     </Container>

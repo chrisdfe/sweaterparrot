@@ -10,31 +10,34 @@ const spacing: SpacingMap = spacingSizes.reduce((acc, currentSpacingUnit) => {
 }, {});
 
 const swatch = {
-  red: "#ff4422"
+  tomato: "#CA3A47",
+  lightTomato: "#E28C91",
+  grapefruit: "#FF9F93",
+  white: "#fff",
+  charcol: "#2f2911",
+  forest: "#3f4c46d"
 }
 
 const theme: DefaultTheme = {
   spacing,
   swatch,
   palette: {
-    primary: "red",
-    secondary: "pink",
     background: {
-      primary: "white"
+      primary: swatch.white
     },
     text: {
-      primary: "black",
+      primary: swatch.charcol,
       secondary: "green",
     },
     links: {
       primary: {
-        default: swatch.red,
-        hover: "blue",
+        default: swatch.tomato,
+        hover: swatch.grapefruit,
       }
     },
     borders: {
-      primary: swatch.red,
-      secondary: "pink"
+      primary: swatch.tomato,
+      secondary: swatch.lightTomato
     }
   }
 }
