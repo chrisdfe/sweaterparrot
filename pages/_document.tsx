@@ -5,7 +5,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <title>sweaterparrot</title>
         <meta name="description" content="sweaterparrot" />
         <link rel="icon" href="/favicon.ico" />
 

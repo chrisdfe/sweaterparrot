@@ -1,3 +1,4 @@
+import path from 'path';
 import slugify from "slugify";
 
 import { Artwork } from "../../types/artwork";
@@ -14,3 +15,4 @@ export const getArtworkUrlFromTitle = (title: string): string => {
 export const getArtworkUrl = (artwork: Artwork): string => {
   return getArtworkUrlFromTitle(artwork.title || "");
 };
+

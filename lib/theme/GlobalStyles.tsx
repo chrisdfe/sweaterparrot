@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   
   a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
     color: ${props => props.theme.palette.links.primary.default};
     transition: color 0.2s;
     

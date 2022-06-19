@@ -33,6 +33,10 @@ const theme: DefaultTheme = {
       primary: {
         default: swatch.tomato,
         hover: swatch.grapefruit,
+      },
+      secondary: {
+        default: swatch.charcol,
+        hover: swatch.tomato,
       }
     },
     borders: {
